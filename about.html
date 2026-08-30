@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Discover MONO Laptops story. Engineered with monolithic CNC-milled aluminum, liquid vapor chambers, and calibrated OLED screens.">
+    <title>Our Story | MONO. Laptops</title>
+    <!-- FontAwesome for icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Style Sheet -->
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+    <!-- GLOBAL HEADER -->
+    <header id="main-header">
+        <div class="container nav-container">
+            <a href="index.html" class="logo" id="brand-logo">MONO<span></span></a>
+            
+            <nav>
+                <ul class="nav-links" id="desktop-menu">
+                    <li><a href="products.html" class="nav-link">Shop</a></li>
+                    <li><a href="configure.html" class="nav-link">Configure</a></li>
+                    <li><a href="about.html" class="nav-link active">Story</a></li>
+                    <li><a href="cart.html" class="nav-link">Cart</a></li>
+                </ul>
+            </nav>
+            
+            <div class="nav-actions">
+                <button class="nav-btn" id="theme-toggle-btn" aria-label="Toggle Dark/Light Theme">
+                    <i class="fa-solid fa-moon theme-icon-moon"></i>
+                    <i class="fa-solid fa-sun theme-icon-sun"></i>
+                </button>
+                <button class="nav-btn" id="cart-trigger-btn" aria-label="Open Shopping Drawer">
+                    <i class="fa-solid fa-bag-shopping"></i>
+                    <span class="cart-count" id="global-cart-count">0</span>
+                </button>
+                <button class="nav-btn menu-toggle" id="mobile-menu-btn" aria-label="Toggle Navigation Menu">
+                    <i class="fa-solid fa-bars" id="menu-icon"></i>
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <!-- MOBILE NAVIGATION MENU -->
+    <div class="mobile-nav" id="mobile-nav-panel">
+        <ul class="mobile-nav-links">
+            <li><a href="products.html" onclick="toggleMobileMenu()">Shop</a></li>
+            <li><a href="configure.html" onclick="toggleMobileMenu()">Configure</a></li>
+            <li><a href="about.html" onclick="toggleMobileMenu()">Story</a></li>
+            <li><a href="cart.html" onclick="toggleMobileMenu()">Cart</a></li>
+        </ul>
+    </div>
+
+    <!-- PAGE HERO BANNER -->
+    <section class="page-hero">
+        <div class="container">
+            <h1 class="page-hero-title">Our Philosophy</h1>
+            <p class="page-hero-subtitle">Stripping away excess. Engineering absolute precision. Reimagining structural and thermal computing.</p>
+        </div>
+    </section>
+
+    <!-- BRAND STORY EDITORIAL CONTENT -->
+    <section class="about-section">
+        <div class="container">
+            
+            <!-- Monolithic Chassis Story -->
+            <div class="about-editorial fade-up-init">
+                <h2 class="editorial-title">Monolithic CNC Structure.</h2>
+                <div class="editorial-text">
+                    <p>
+                        We do not stamp, bend, or weld our laptops. Every single MONO chassis begins its life as a solid, 8-kilogram block of extruded series 6000 aerospace-grade aluminum alloy.
+                    </p>
+                    <p>
+                        Through a multi-hour CNC milling sequence, we carve out the internal layout, keyboard wells, and microscopic ventilation arrays. This yields a single, continuous metal body with zero seams, zero flex, and an outstanding structural integrity that withstands the most demanding daily travel.
+                    </p>
+                </div>
+            </div>
+
+            <!-- Technology Pillars Grid -->
+            <div class="about-gallery">
+                <div class="gallery-card fade-up-init">
+                    <i class="fa-solid fa-wind"></i>
+                    <h4>Vapor Thermals</h4>
+                    <p>Instead of copper heat-pipes, a vacuum-sealed liquid chamber dissipates chip heat, operating under 15dB even at full compilation speeds.</p>
+                </div>
+                <div class="gallery-card fade-up-init delay-100">
+                    <i class="fa-solid fa-keyboard"></i>
+                    <h4>Zero-Play Keys</h4>
+                    <p>Designed with micro dome-switches and a short 1.1mm activation profile, our keyboard provides a completely silent, tactile typing feel.</p>
+                </div>
+                <div class="gallery-card fade-up-init delay-200">
+                    <i class="fa-solid fa-solar-panel"></i>
+                    <h4>Calibrated OLED</h4>
+                    <p>Deep pitch-blacks, 120Hz liquid refresh rates, and 1600 nits peak brightness. Every screen is pre-calibrated to support 100% DCI-P3 gamut color spaces.</p>
+                </div>
+            </div>
+
+            <!-- Environmental Commitment Story -->
+            <div class="about-editorial fade-up-init" style="margin-bottom: 0;">
+                <h2 class="editorial-title">Neutral Footprint.</h2>
+                <div class="editorial-text">
+                    <p>
+                        A clean minimal design shouldn't come at the expense of our planet. That is why our manufacturing facilities run on 100% renewable hydroelectric power, and 98% of the aluminum scrap generated during the CNC carving process is instantly recycled back into future builds.
+                    </p>
+                    <p>
+                        We also pack all systems in fully biodegradable plant-fiber trays, using zero plastic. Built to last, engineered to adapt.
+                    </p>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- SHOPPING DRAWER OVERLAY -->
+    <div class="cart-overlay" id="shopping-cart-overlay">
+        <div class="cart-drawer" id="shopping-cart-drawer">
+            <div class="cart-header">
+                <h3>Your Bag</h3>
+                <button class="cart-close-btn" id="cart-close-btn" aria-label="Close Shopping Drawer">
+                    <i class="fa-solid fa-xmark"></i>
+                </button>
+            </div>
+            
+            <div class="cart-items-container" id="cart-items-wrapper">
+                <div class="cart-empty" id="cart-empty-message">
+                    <i class="fa-solid fa-bag-shopping"></i>
+                    <p>Your bag is currently empty.</p>
+                </div>
+            </div>
+
+            <div class="cart-drawer-footer">
+                <div class="cart-subtotal-row">
+                    <span class="subtotal-label">Subtotal</span>
+                    <span class="subtotal-val" id="cart-subtotal-display">$0</span>
+                </div>
+                <button class="btn btn-primary checkout-btn" id="cart-checkout-btn">Checkout</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- GLOBAL FOOTER -->
+    <footer id="support">
+        <div class="container footer-grid">
+            <div class="footer-brand">
+                <a href="#" class="logo">MONO<span></span></a>
+                <p>Designing modern, high-precision personal computers with a strict monochrome design language.</p>
+            </div>
+            
+            <div class="footer-column">
+                <h4>Products</h4>
+                <ul class="footer-links">
+                    <li><a href="products.html?filter=macos">macOS Models</a></li>
+                    <li><a href="products.html?filter=windows">Windows Models</a></li>
+                    <li><a href="products.html?filter=accessories">Accessories</a></li>
+                    <li><a href="configure.html">Configure Options</a></li>
+                </ul>
+            </div>
+
+            <div class="footer-column">
+                <h4>Support</h4>
+                <ul class="footer-links">
+                    <li><a href="#">Contact Us</a></li>
+                    <li><a href="#">WhatsApp Support</a></li>
+                    <li><a href="#">Warranty Registry</a></li>
+                    <li><a href="#">Driver Downloads</a></li>
+                </ul>
+            </div>
+
+            <div class="footer-column">
+                <h4>Keep Updated</h4>
+                <form class="newsletter-form" id="newsletter-form-container" onsubmit="event.preventDefault(); alert('Subscribed successfully!');">
+                    <input type="email" placeholder="Enter your email" class="newsletter-input" required aria-label="Email address for updates">
+                    <button type="submit" class="newsletter-submit">Subscribe</button>
+                </form>
+            </div>
+        </div>
+
+        <div class="container footer-bottom">
+            <span>&copy; 2026 MONO. Inc. All rights reserved.</span>
+            <span>Made with precision in Berlin.</span>
+        </div>
+    </footer>
+
+    <script src="app.js"></script>
+</body>
+</html>

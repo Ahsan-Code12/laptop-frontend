@@ -1,0 +1,294 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="MONO Laptops - Premium minimalist laptops running macOS and Windows. Configure your MacBook Air, MacBook Pro, MacBook Neo, or high-performance Windows Creator system.">
+    <title>MONO. | Premium Minimalist Laptops</title>
+    <!-- FontAwesome for icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Style Sheet -->
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+    <!-- GLOBAL HEADER -->
+    <header id="main-header">
+        <div class="container nav-container">
+            <a href="index.html" class="logo" id="brand-logo">MONO<span></span></a>
+            
+            <nav>
+                <ul class="nav-links" id="desktop-menu">
+                    <li><a href="products.html" class="nav-link">Shop</a></li>
+                    <li><a href="configure.html" class="nav-link">Configure</a></li>
+                    <li><a href="about.html" class="nav-link">Story</a></li>
+                    <li><a href="cart.html" class="nav-link">Cart</a></li>
+                </ul>
+            </nav>
+            
+            <div class="nav-actions">
+                <button class="nav-btn" id="theme-toggle-btn" aria-label="Toggle Dark/Light Theme">
+                    <i class="fa-solid fa-moon theme-icon-moon"></i>
+                    <i class="fa-solid fa-sun theme-icon-sun"></i>
+                </button>
+                <button class="nav-btn" id="cart-trigger-btn" aria-label="Open Shopping Drawer">
+                    <i class="fa-solid fa-bag-shopping"></i>
+                    <span class="cart-count" id="global-cart-count">0</span>
+                </button>
+                <button class="nav-btn menu-toggle" id="mobile-menu-btn" aria-label="Toggle Navigation Menu">
+                    <i class="fa-solid fa-bars" id="menu-icon"></i>
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <!-- MOBILE NAVIGATION MENU -->
+    <div class="mobile-nav" id="mobile-nav-panel">
+        <ul class="mobile-nav-links">
+            <li><a href="products.html" onclick="toggleMobileMenu()">Shop</a></li>
+            <li><a href="configure.html" onclick="toggleMobileMenu()">Configure</a></li>
+            <li><a href="about.html" onclick="toggleMobileMenu()">Story</a></li>
+            <li><a href="cart.html" onclick="toggleMobileMenu()">Cart</a></li>
+        </ul>
+    </div>
+
+    <!-- HOME HERO SECTION -->
+    <section class="hero" id="home">
+        <div class="container hero-grid">
+            <div class="hero-content">
+                <div class="hero-badge fade-up-init">Sleek Design. Custom Choice.</div>
+                <h1 class="hero-title fade-up-init delay-100">Pure Form.<br>Absolute Power.</h1>
+                <p class="hero-description fade-up-init delay-200">
+                    Precision-engineered personal computing. Carved from solid aluminum blocks. Select from flagship Apple macOS or high-octane Windows systems.
+                </p>
+                <div class="hero-ctas fade-up-init delay-300">
+                    <a href="configure.html" class="btn btn-primary">Configure Build</a>
+                    <a href="products.html" class="btn btn-secondary">Explore Shop</a>
+                </div>
+            </div>
+            <div class="hero-image-wrapper fade-up-init delay-200">
+                <div class="hero-image-bg"></div>
+                <img src="assets/mbp14-m4-2024-1093056707.png" alt="MacBook Pro Obsidian Black" class="hero-image" id="hero-laptop-image">
+            </div>
+        </div>
+    </section>
+
+    <!-- OS DUAL BLOCKS SECTION (MAC VS WINDOWS) -->
+    <section class="dual-platforms" id="os-showcase">
+        <div class="container">
+            <div class="dual-grid">
+                <!-- MacOS Block -->
+                <div class="platform-block fade-up-init" id="macos-promo">
+                    <div class="platform-header">
+                        <h3>macOS Lineup</h3>
+                        <p>Built with Apple Silicon, offering incredible efficiency, seamless software, and the flagship MacBook Air, MacBook Pro, and dual-screen MacBook Neo.</p>
+                    </div>
+                    <div class="platform-img-box">
+                        <img src="assets/mbp14-m4-2024-1093056707.png" alt="MacBook Neo Dual Screen Concept">
+                    </div>
+                    <a href="products.html?filter=macos" class="btn btn-secondary">Shop macOS</a>
+                </div>
+
+                <!-- Windows Block -->
+                <div class="platform-block fade-up-init delay-100" id="windows-promo">
+                    <div class="platform-header">
+                        <h3>Windows Lineup</h3>
+                        <p>High compatibility and dedicated workstation power. Featuring Intel Core Ultra processors and NVIDIA RTX graphics for creators and gamers.</p>
+                    </div>
+                    <div class="platform-img-box">
+                        <img src="assets/mbp14-m4-2024-1093056707.png" alt="MONO Windows Creator Laptop">
+                    </div>
+                    <a href="products.html?filter=windows" class="btn btn-secondary">Shop Windows</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- SPOTLIGHT GRID HERO SHOWCASE -->
+    <section class="dual-platforms" style="padding-top: 0; background-color: var(--bg-secondary); border-bottom: 1px solid var(--border-color);">
+        <div class="container" style="padding-top: 8rem; padding-bottom: 8rem;">
+            <h2 class="section-title fade-up-init" style="margin-bottom: 4rem;">Flagship Spotlights</h2>
+            <div class="product-grid">
+                <!-- Card 1: MacBook Pro -->
+                <div class="product-card fade-up-init" id="card-spotlight-macbook-pro">
+                    <span class="product-tag">Flagship macOS</span>
+                    <div class="product-image-container">
+                        <img src="assets/mbp14-m4-2024-1093056707.png" alt="MacBook Pro" class="product-img">
+                    </div>
+                    <div class="product-info">
+                        <h3 class="product-title">MacBook Pro 16"</h3>
+                        <ul class="product-specs">
+                            <li>M3 Pro Silicon</li>
+                            <li>16GB Unified RAM</li>
+                            <li>512GB SSD</li>
+                        </ul>
+                        <div class="product-footer">
+                            <span class="product-price">$1,999</span>
+                            <div class="product-actions">
+                                <a href="configure.html?model=macbook-pro" class="product-action-btn" aria-label="Configure MacBook Pro">
+                                    <i class="fa-solid fa-sliders"></i>
+                                </a>
+                                <button class="product-action-btn shop-quick-add" data-id="macbook-pro" aria-label="Add MacBook Pro to Cart">
+                                    <i class="fa-solid fa-plus"></i>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Card 2: MacBook Neo Concept -->
+                <div class="product-card fade-up-init delay-100" id="card-spotlight-macbook-neo">
+                    <span class="product-tag">Dual Screen Neo</span>
+                    <div class="product-image-container">
+                        <img src="assets/mbp14-m4-2024-1093056707.png" alt="MacBook Neo" class="product-img">
+                    </div>
+                    <div class="product-info">
+                        <h3 class="product-title">MacBook Neo 15"</h3>
+                        <ul class="product-specs">
+                            <li>M4 Ultra Concept</li>
+                            <li>32GB Unified RAM</li>
+                            <li>1TB SSD</li>
+                        </ul>
+                        <div class="product-footer">
+                            <span class="product-price">$2,899</span>
+                            <div class="product-actions">
+                                <a href="configure.html?model=macbook-neo" class="product-action-btn" aria-label="Configure MacBook Neo">
+                                    <i class="fa-solid fa-sliders"></i>
+                                </a>
+                                <button class="product-action-btn shop-quick-add" data-id="macbook-neo" aria-label="Add MacBook Neo to Cart">
+                                    <i class="fa-solid fa-plus"></i>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Card 3: Windows Creator -->
+                <div class="product-card fade-up-init delay-200" id="card-spotlight-windows-creator">
+                    <span class="product-tag">Windows Beast</span>
+                    <div class="product-image-container">
+                        <img src="assets/mono_silver.png" alt="Windows Creator Laptop" class="product-img">
+                    </div>
+                    <div class="product-info">
+                        <h3 class="product-title">MONO Creator</h3>
+                        <ul class="product-specs">
+                            <li>AMD Ryzen 9</li>
+                            <li>RTX 4070 GPU</li>
+                            <li>32GB RAM</li>
+                        </ul>
+                        <div class="product-footer">
+                            <span class="product-price">$2,199</span>
+                            <div class="product-actions">
+                                <a href="configure.html?model=windows-creator" class="product-action-btn" aria-label="Configure Windows Creator">
+                                    <i class="fa-solid fa-sliders"></i>
+                                </a>
+                                <button class="product-action-btn shop-quick-add" data-id="windows-creator" aria-label="Add MONO Windows Creator to Cart">
+                                    <i class="fa-solid fa-plus"></i>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CORE TECHNOLOGY SHOWCASE -->
+    <section class="dual-platforms" style="background-color: var(--bg-primary);">
+        <div class="container" style="padding-top: 8rem; padding-bottom: 8rem;">
+            <div class="about-editorial" style="margin-bottom: 0;">
+                <div class="showcase-content">
+                    <h2 class="editorial-title fade-up-init">CNC Craftsmanship.</h2>
+                    <p class="editorial-text fade-up-init delay-100" style="margin-top: 2rem;">
+                        Every laptop frame is carved from a solid block of aerospace aluminum alloy series 6000. Precision micro-milling ensures zero structural flex, microscopic tolerances, and an incredibly light footprint.
+                    </p>
+                    <a href="about.html" class="btn btn-secondary fade-up-init delay-200" style="margin-top: 2.5rem;">Read Story</a>
+                </div>
+                <div class="hero-image-wrapper fade-up-init delay-200">
+                    <img src="assets/mbp14-m4-2024-1093056707.png" alt="Chassis engineering profile" style="filter: drop-shadow(0 20px 40px rgba(0,0,0,0.5)); border-radius: 4px;">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- SHOPPING DRAWER OVERLAY -->
+    <div class="cart-overlay" id="shopping-cart-overlay">
+        <div class="cart-drawer" id="shopping-cart-drawer">
+            <div class="cart-header">
+                <h3>Your Bag</h3>
+                <button class="cart-close-btn" id="cart-close-btn" aria-label="Close Shopping Drawer">
+                    <i class="fa-solid fa-xmark"></i>
+                </button>
+            </div>
+            
+            <div class="cart-items-container" id="cart-items-wrapper">
+                <div class="cart-empty" id="cart-empty-message">
+                    <i class="fa-solid fa-bag-shopping"></i>
+                    <p>Your bag is currently empty.</p>
+                </div>
+            </div>
+
+            <div class="cart-drawer-footer">
+                <div class="cart-subtotal-row">
+                    <span class="subtotal-label">Subtotal</span>
+                    <span class="subtotal-val" id="cart-subtotal-display">$0</span>
+                </div>
+                <button class="btn btn-primary checkout-btn" id="cart-checkout-btn">Checkout</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- FOOTER -->
+    <footer id="support">
+        <div class="container footer-grid">
+            <div class="footer-brand fade-up-init">
+                <a href="#" class="logo">MONO<span></span></a>
+                <p>Designing modern, high-precision personal computers with a strict monochrome design language.</p>
+            </div>
+            
+            <div class="footer-column fade-up-init delay-100">
+                <h4>Products</h4>
+                <ul class="footer-links">
+                    <li><a href="products.html?filter=macos">macOS Models</a></li>
+                    <li><a href="products.html?filter=windows">Windows Models</a></li>
+                    <li><a href="products.html?filter=accessories">Accessories</a></li>
+                    <li><a href="configure.html">Configure Options</a></li>
+                </ul>
+            </div>
+
+            <div class="footer-column fade-up-init delay-200">
+                <h4>Support</h4>
+                <ul class="footer-links">
+                    <li><a href="#">Contact Us</a></li>
+                    <li><a href="#">WhatsApp Support</a></li>
+                    <li><a href="#">Warranty Registry</a></li>
+                    <li><a href="#">Driver Downloads</a></li>
+                </ul>
+            </div>
+
+            <div class="footer-column fade-up-init delay-300">
+                <h4>Keep Updated</h4>
+                <form class="newsletter-form" id="newsletter-form-container" onsubmit="event.preventDefault(); alert('Subscribed successfully!');">
+                    <input type="email" placeholder="Enter your email" class="newsletter-input" required aria-label="Email address for updates">
+                    <button type="submit" class="newsletter-submit">Subscribe</button>
+                </form>
+            </div>
+        </div>
+
+        <div class="container footer-bottom">
+            <span>&copy; 2026 MONO. Inc. All rights reserved.</span>
+            <span>Made with precision in Berlin.</span>
+        </div>
+    </footer>
+
+    <!-- Image asset mappings helper -->
+    <script>
+        const imagePaths = {
+            black: 'assets/mbp14-m4-2024-1093056707.png',
+            white: 'assets/mbp14-m4-2024-1093056707.png',
+            silver: 'assets/mbp14-m4-2024-1093056707.png'
+        };
+    </script>
+    <script src="app.js"></script>
+</body>
+</html>

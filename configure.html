@@ -1,0 +1,275 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Configure your MONO Laptop - Custom design MacBook Air, MacBook Pro, MacBook Neo, or Windows Creator laptop to match your technical requirements.">
+    <title>Configure | MONO. Laptops</title>
+    <!-- FontAwesome for icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Style Sheet -->
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+    <!-- Identifying container for app.js configurator page check -->
+    <div id="configurator-page-container" style="display: none;"></div>
+
+    <!-- GLOBAL HEADER -->
+    <header id="main-header">
+        <div class="container nav-container">
+            <a href="index.html" class="logo" id="brand-logo">MONO<span></span></a>
+            
+            <nav>
+                <ul class="nav-links" id="desktop-menu">
+                    <li><a href="products.html" class="nav-link">Shop</a></li>
+                    <li><a href="configure.html" class="nav-link active">Configure</a></li>
+                    <li><a href="about.html" class="nav-link">Story</a></li>
+                    <li><a href="cart.html" class="nav-link">Cart</a></li>
+                </ul>
+            </nav>
+            
+            <div class="nav-actions">
+                <button class="nav-btn" id="theme-toggle-btn" aria-label="Toggle Dark/Light Theme">
+                    <i class="fa-solid fa-moon theme-icon-moon"></i>
+                    <i class="fa-solid fa-sun theme-icon-sun"></i>
+                </button>
+                <button class="nav-btn" id="cart-trigger-btn" aria-label="Open Shopping Drawer">
+                    <i class="fa-solid fa-bag-shopping"></i>
+                    <span class="cart-count" id="global-cart-count">0</span>
+                </button>
+                <button class="nav-btn menu-toggle" id="mobile-menu-btn" aria-label="Toggle Navigation Menu">
+                    <i class="fa-solid fa-bars" id="menu-icon"></i>
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <!-- MOBILE NAVIGATION MENU -->
+    <div class="mobile-nav" id="mobile-nav-panel">
+        <ul class="mobile-nav-links">
+            <li><a href="products.html" onclick="toggleMobileMenu()">Shop</a></li>
+            <li><a href="configure.html" onclick="toggleMobileMenu()">Configure</a></li>
+            <li><a href="about.html" onclick="toggleMobileMenu()">Story</a></li>
+            <li><a href="cart.html" onclick="toggleMobileMenu()">Cart</a></li>
+        </ul>
+    </div>
+
+    <!-- PAGE HERO BANNER -->
+    <section class="page-hero">
+        <div class="container">
+            <h1 class="page-hero-title">Configure Your Build</h1>
+            <p class="page-hero-subtitle">Optimize unified silicon memory, storage, and exterior finish. Tailored exactly to your computational workflow.</p>
+        </div>
+    </section>
+
+    <!-- CONFIGURATOR GRID AREA -->
+    <section class="configurator-layout">
+        <div class="container config-grid">
+            
+            <!-- Left Side Visual Showcase -->
+            <div class="config-visual">
+                <div class="hero-image-bg"></div>
+                <div class="config-img-box">
+                    <img src="assets/macbook_pro.png" alt="Configuring MacBook Pro" id="config-laptop-preview">
+                </div>
+            </div>
+
+            <!-- Right Side Selection Panel -->
+            <div class="config-options">
+                
+                <!-- Platform Dropdown Select -->
+                <div class="option-group">
+                    <h4 class="config-section-title">1. Base Platform</h4>
+                    <label for="config-model-select" style="display:none;">Choose Platform Model</label>
+                    <select class="model-dropdown-select" id="config-model-select">
+                        <option value="macbook-air">MacBook Air 13" — $1,099</option>
+                        <option value="macbook-air15">MacBook Air 15" — $1,299</option>
+                        <option value="macbook-pro">MacBook Pro 16" — $1,999</option>
+                        <option value="macbook-neo">MacBook Neo 15" — $2,899</option>
+                        <option value="macbook-studio">MacBook Studio 17" — $3,499</option>
+                        <option value="windows-lite">MONO Windows Lite 14" — $899</option>
+                        <option value="windows-thin">MONO Windows Thin 13" — $1,199</option>
+                        <option value="windows-pro">MONO Windows Pro 15" — $1,499</option>
+                        <option value="windows-creator">MONO Windows Creator 16" — $2,199</option>
+                        <option value="windows-extreme">MONO Windows Extreme 17" — $3,999</option>
+                    </select>
+                </div>
+
+                <!-- Finishes Option Group -->
+                <div class="option-group">
+                    <h4 class="config-section-title">2. Color / Finish</h4>
+                    <div class="color-selectors" id="config-color-options">
+                        <button class="color-btn active" data-color="black" aria-label="Obsidian Black finish"></button>
+                        <button class="color-btn" data-color="white" aria-label="Ceramic White finish"></button>
+                        <button class="color-btn" data-color="silver" aria-label="Platinum Silver finish"></button>
+                    </div>
+                </div>
+
+                <!-- Memory Option Group -->
+                <div class="option-group">
+                    <h4 class="config-section-title">3. Unified System Memory</h4>
+                    <div class="pill-grid" id="config-ram-options">
+                        <div class="pill-option active" data-ram="16GB">
+                            <div class="pill-label">
+                                <span class="pill-title">16GB RAM</span>
+                                <span class="pill-subtitle">LPDDR5 High Bandwidth</span>
+                            </div>
+                            <span class="pill-price-diff">Included</span>
+                        </div>
+                        <div class="pill-option" data-ram="32GB">
+                            <div class="pill-label">
+                                <span class="pill-title">32GB RAM</span>
+                                <span class="pill-subtitle">Multitasking Creator Workloads</span>
+                            </div>
+                            <span class="pill-price-diff">+$200</span>
+                        </div>
+                        <div class="pill-option" data-ram="64GB">
+                            <div class="pill-label">
+                                <span class="pill-title">64GB RAM</span>
+                                <span class="pill-subtitle">Workstation Rendering Tasks</span>
+                            </div>
+                            <span class="pill-price-diff">+$400</span>
+                        </div>
+                        <div class="pill-option" data-ram="128GB">
+                            <div class="pill-label">
+                                <span class="pill-title">128GB RAM</span>
+                                <span class="pill-subtitle">Heavy Machine Learning Models</span>
+                            </div>
+                            <span class="pill-price-diff">+$800</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Storage Option Group -->
+                <div class="option-group">
+                    <h4 class="config-section-title">4. SSD Capacity</h4>
+                    <div class="pill-grid" id="config-storage-options">
+                        <div class="pill-option active" data-storage="512GB">
+                            <div class="pill-label">
+                                <span class="pill-title">512GB NVMe SSD</span>
+                                <span class="pill-subtitle">Ultra fast read/write speeds</span>
+                            </div>
+                            <span class="pill-price-diff">Included</span>
+                        </div>
+                        <div class="pill-option" data-storage="1TB">
+                            <div class="pill-label">
+                                <span class="pill-title">1TB NVMe SSD</span>
+                                <span class="pill-subtitle">Generous storage for creators</span>
+                            </div>
+                            <span class="pill-price-diff">+$150</span>
+                        </div>
+                        <div class="pill-option" data-storage="2TB">
+                            <div class="pill-label">
+                                <span class="pill-title">2TB NVMe SSD</span>
+                                <span class="pill-subtitle">Heavy projects and active assets</span>
+                            </div>
+                            <span class="pill-price-diff">+$300</span>
+                        </div>
+                        <div class="pill-option" data-storage="4TB">
+                            <div class="pill-label">
+                                <span class="pill-title">4TB NVMe SSD</span>
+                                <span class="pill-subtitle">Complete offline archive workspace</span>
+                            </div>
+                            <span class="pill-price-diff">+$600</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Configuration Summary Box -->
+                <div class="config-summary">
+                    <div class="summary-header">
+                        <span class="summary-title" id="summary-device-title">MacBook Pro 16" - Obsidian Black</span>
+                        <span class="summary-total" id="summary-price-display">$1,999</span>
+                    </div>
+                    <div class="config-specs-summary" id="summary-specs-details">
+                        Apple M3 Pro Chip, 16GB Unified RAM, 512GB NVMe Storage.
+                    </div>
+                    <button class="btn btn-primary checkout-btn" id="config-add-to-cart-btn">Add to Bag</button>
+                </div>
+
+            </div>
+
+        </div>
+    </section>
+
+    <!-- SHOPPING DRAWER OVERLAY -->
+    <div class="cart-overlay" id="shopping-cart-overlay">
+        <div class="cart-drawer" id="shopping-cart-drawer">
+            <div class="cart-header">
+                <h3>Your Bag</h3>
+                <button class="cart-close-btn" id="cart-close-btn" aria-label="Close Shopping Drawer">
+                    <i class="fa-solid fa-xmark"></i>
+                </button>
+            </div>
+            
+            <div class="cart-items-container" id="cart-items-wrapper">
+                <div class="cart-empty" id="cart-empty-message">
+                    <i class="fa-solid fa-bag-shopping"></i>
+                    <p>Your bag is currently empty.</p>
+                </div>
+            </div>
+
+            <div class="cart-drawer-footer">
+                <div class="cart-subtotal-row">
+                    <span class="subtotal-label">Subtotal</span>
+                    <span class="subtotal-val" id="cart-subtotal-display">$0</span>
+                </div>
+                <button class="btn btn-primary checkout-btn" id="cart-checkout-btn">Checkout</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- GLOBAL FOOTER -->
+    <footer id="support">
+        <div class="container footer-grid">
+            <div class="footer-brand">
+                <a href="#" class="logo">MONO<span></span></a>
+                <p>Designing modern, high-precision personal computers with a strict monochrome design language.</p>
+            </div>
+            
+            <div class="footer-column">
+                <h4>Products</h4>
+                <ul class="footer-links">
+                    <li><a href="products.html?filter=macos">macOS Models</a></li>
+                    <li><a href="products.html?filter=windows">Windows Models</a></li>
+                    <li><a href="products.html?filter=accessories">Accessories</a></li>
+                    <li><a href="configure.html">Configure Options</a></li>
+                </ul>
+            </div>
+
+            <div class="footer-column">
+                <h4>Support</h4>
+                <ul class="footer-links">
+                    <li><a href="#">Contact Us</a></li>
+                    <li><a href="#">WhatsApp Support</a></li>
+                    <li><a href="#">Warranty Registry</a></li>
+                    <li><a href="#">Driver Downloads</a></li>
+                </ul>
+            </div>
+
+            <div class="footer-column">
+                <h4>Keep Updated</h4>
+                <form class="newsletter-form" id="newsletter-form-container" onsubmit="event.preventDefault(); alert('Subscribed successfully!');">
+                    <input type="email" placeholder="Enter your email" class="newsletter-input" required aria-label="Email address for updates">
+                    <button type="submit" class="newsletter-submit">Subscribe</button>
+                </form>
+            </div>
+        </div>
+
+        <div class="container footer-bottom">
+            <span>&copy; 2026 MONO. Inc. All rights reserved.</span>
+            <span>Made with precision in Berlin.</span>
+        </div>
+    </footer>
+
+    <script>
+        const imagePaths = {
+            black: 'assets/mbp14-m4-2024-1093056707.png',
+            white: 'assets/mbp14-m4-2024-1093056707.png',
+            silver: 'assets/mbp14-m4-2024-1093056707.png'
+        };
+    </script>
+    <script src="app.js"></script>
+</body>
+</html>

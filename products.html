@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Shop MONO Laptops - Browse our full lineup of macOS systems including MacBook Pro, MacBook Air, MacBook Neo, and professional Windows workstations.">
+    <title>Shop | MONO. Laptops</title>
+    <!-- FontAwesome for icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Style Sheet -->
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+    <!-- Identifying container for app.js catalog check -->
+    <div id="catalog-products-container" style="display: none;"></div>
+
+    <!-- GLOBAL HEADER -->
+    <header id="main-header">
+        <div class="container nav-container">
+            <a href="index.html" class="logo" id="brand-logo">MONO<span></span></a>
+            
+            <nav>
+                <ul class="nav-links" id="desktop-menu">
+                    <li><a href="products.html" class="nav-link active">Shop</a></li>
+                    <li><a href="configure.html" class="nav-link">Configure</a></li>
+                    <li><a href="about.html" class="nav-link">Story</a></li>
+                    <li><a href="cart.html" class="nav-link">Cart</a></li>
+                </ul>
+            </nav>
+            
+            <div class="nav-actions">
+                <button class="nav-btn" id="theme-toggle-btn" aria-label="Toggle Dark/Light Theme">
+                    <i class="fa-solid fa-moon theme-icon-moon"></i>
+                    <i class="fa-solid fa-sun theme-icon-sun"></i>
+                </button>
+                <button class="nav-btn" id="cart-trigger-btn" aria-label="Open Shopping Drawer">
+                    <i class="fa-solid fa-bag-shopping"></i>
+                    <span class="cart-count" id="global-cart-count">0</span>
+                </button>
+                <button class="nav-btn menu-toggle" id="mobile-menu-btn" aria-label="Toggle Navigation Menu">
+                    <i class="fa-solid fa-bars" id="menu-icon"></i>
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <!-- MOBILE NAVIGATION MENU -->
+    <div class="mobile-nav" id="mobile-nav-panel">
+        <ul class="mobile-nav-links">
+            <li><a href="products.html" onclick="toggleMobileMenu()">Shop</a></li>
+            <li><a href="configure.html" onclick="toggleMobileMenu()">Configure</a></li>
+            <li><a href="about.html" onclick="toggleMobileMenu()">Story</a></li>
+            <li><a href="cart.html" onclick="toggleMobileMenu()">Cart</a></li>
+        </ul>
+    </div>
+
+    <!-- PAGE HERO BANNER -->
+    <section class="page-hero">
+        <div class="container">
+            <h1 class="page-hero-title">The Collection</h1>
+            <p class="page-hero-subtitle">Meticulously refined laptop series and companion accessories, curated to provide peak productivity on clean monochrome systems.</p>
+        </div>
+    </section>
+
+    <!-- SHOP CATALOG CONTENT -->
+    <section class="catalog-layout">
+        <div class="container catalog-sidebar-grid">
+            
+            <!-- Filter Sidebar -->
+            <aside class="filter-sidebar">
+                <!-- Search Box -->
+                <div class="search-box">
+                    <i class="fa-solid fa-magnifying-glass"></i>
+                    <input type="text" placeholder="Search..." class="search-input" id="catalog-search" aria-label="Search products">
+                </div>
+
+                <!-- Category Filters -->
+                <div>
+                    <h4 class="filter-group-title">Operating System</h4>
+                    <ul class="filter-list">
+                        <li><button class="filter-item-btn active" data-filter="all">All Systems</button></li>
+                        <li><button class="filter-item-btn" data-filter="macos">Apple macOS</button></li>
+                        <li><button class="filter-item-btn" data-filter="windows">Windows OS</button></li>
+                        <li><button class="filter-item-btn" data-filter="accessories">Accessories</button></li>
+                    </ul>
+                </div>
+            </aside>
+
+            <!-- Product Feed -->
+            <main>
+                <!-- Sorting Bar -->
+                <div class="catalog-controls">
+                    <span class="results-count" id="catalog-results-count">Showing 9 Products</span>
+                    <div>
+                        <label for="catalog-sort" style="display:none;">Sort By</label>
+                        <select class="sort-select" id="catalog-sort">
+                            <option value="relevance">Sort By: Featured</option>
+                            <option value="price-asc">Price: Low to High</option>
+                            <option value="price-desc">Price: High to Low</option>
+                            <option value="alpha">Alphabetical (A-Z)</option>
+                        </select>
+                    </div>
+                </div>
+
+                <!-- Product Grid Container -->
+                <div class="product-grid" id="product-list-container">
+                    <!-- Cards will be dynamically generated by JS -->
+                </div>
+            </main>
+
+        </div>
+    </section>
+
+    <!-- SHOPPING DRAWER OVERLAY -->
+    <div class="cart-overlay" id="shopping-cart-overlay">
+        <div class="cart-drawer" id="shopping-cart-drawer">
+            <div class="cart-header">
+                <h3>Your Bag</h3>
+                <button class="cart-close-btn" id="cart-close-btn" aria-label="Close Shopping Drawer">
+                    <i class="fa-solid fa-xmark"></i>
+                </button>
+            </div>
+            
+            <div class="cart-items-container" id="cart-items-wrapper">
+                <div class="cart-empty" id="cart-empty-message">
+                    <i class="fa-solid fa-bag-shopping"></i>
+                    <p>Your bag is currently empty.</p>
+                </div>
+            </div>
+
+            <div class="cart-drawer-footer">
+                <div class="cart-subtotal-row">
+                    <span class="subtotal-label">Subtotal</span>
+                    <span class="subtotal-val" id="cart-subtotal-display">$0</span>
+                </div>
+                <button class="btn btn-primary checkout-btn" id="cart-checkout-btn">Checkout</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- GLOBAL FOOTER -->
+    <footer id="support">
+        <div class="container footer-grid">
+            <div class="footer-brand">
+                <a href="#" class="logo">MONO<span></span></a>
+                <p>Designing modern, high-precision personal computers with a strict monochrome design language.</p>
+            </div>
+            
+            <div class="footer-column">
+                <h4>Products</h4>
+                <ul class="footer-links">
+                    <li><a href="products.html?filter=macos">macOS Models</a></li>
+                    <li><a href="products.html?filter=windows">Windows Models</a></li>
+                    <li><a href="products.html?filter=accessories">Accessories</a></li>
+                    <li><a href="configure.html">Configure Options</a></li>
+                </ul>
+            </div>
+
+            <div class="footer-column">
+                <h4>Support</h4>
+                <ul class="footer-links">
+                    <li><a href="#">Contact Us</a></li>
+                    <li><a href="#">WhatsApp Support</a></li>
+                    <li><a href="#">Warranty Registry</a></li>
+                    <li><a href="#">Driver Downloads</a></li>
+                </ul>
+            </div>
+
+            <div class="footer-column">
+                <h4>Keep Updated</h4>
+                <form class="newsletter-form" id="newsletter-form-container" onsubmit="event.preventDefault(); alert('Subscribed successfully!');">
+                    <input type="email" placeholder="Enter your email" class="newsletter-input" required aria-label="Email address for updates">
+                    <button type="submit" class="newsletter-submit">Subscribe</button>
+                </form>
+            </div>
+        </div>
+
+        <div class="container footer-bottom">
+            <span>&copy; 2026 MONO. Inc. All rights reserved.</span>
+            <span>Made with precision in Berlin.</span>
+        </div>
+    </footer>
+
+    <!-- Filter handling helpers -->
+    <script>
+        // Check URL parameters to auto-set filter category from homepage click
+        const urlParams = new URLSearchParams(window.location.search);
+        const filterParam = urlParams.get('filter');
+        if (filterParam) {
+            document.addEventListener('DOMContentLoaded', () => {
+                const btn = document.querySelector(`.filter-item-btn[data-filter="${filterParam}"]`);
+                if (btn) {
+                    btn.click();
+                }
+            });
+        }
+    </script>
+    <script>
+        const imagePaths = {
+            black: 'assets/mono_black.png',
+            white: 'assets/mono_white.png',
+            silver: 'assets/mono_silver.png'
+        };
+    </script>
+    <script src="app.js"></script>
+</body>
+</html>
